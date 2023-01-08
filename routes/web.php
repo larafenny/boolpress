@@ -29,9 +29,13 @@ Route::middleware('auth')
     ->prefix('admin')
     //se si è autenticato va alla home di admin
     ->group(function() {
-        Route::get('/', 'HomeController@index')
-        ->name('home');
+        //home
+        Route::get('/', 'HomeController@index')->name('index');
+        //rotta per la gestione dei POSTS
+        Route::resource('/posts', 'PostController');
     });
+
+
 
 // route di FALLBACK se non ci sono altre rotte allora va in guest.home
 Route::get('{any?}', function(){
