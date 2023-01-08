@@ -33,7 +33,7 @@ Route::middleware('auth')
         ->name('home');
     });
 
-// se non ci sono altre rotte allora va in guest.home
+// route di FALLBACK se non ci sono altre rotte allora va in guest.home
 Route::get('{any?}', function(){
     return view('guest.home');
 
